@@ -1,0 +1,95 @@
+<html>
+<head>
+    <style>textarea{vertical-align:top}</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!--  Stepper分頁-->
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bs-stepper@1.7.0/dist/css/bs-stepper.min.css">
+</head>
+
+<body bgcolor="#ccccff" >
+
+
+<nav class="navbar navbar-default fixed-top navbar-expand-lg navbar-light bg-light ">
+    <div class="container "> <!-- diff : .container 包住 nav -->
+
+        <!-- .navbar-brand 左上LOGO位置 -->
+        <a class="navbar-brand" href="new_index.php">
+            <img src="logo.svg" alt="" width="40" height="40" class="d-inline-block align-text-top">
+            <span class="h3 mx-1">MockRating</span>
+        </a>
+        <!-- .navbar-toggler 漢堡式選單按鈕 -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <!-- .navbar-toggler-icon 漢堡式選單Icon -->
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <!-- .collapse.navbar-collapse 用於外層中斷點群組和隱藏導覽列內容 -->
+        <!-- 選單項目&漢堡式折疊選單 -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <!-- active表示當前頁面 -->
+                <!--li class="nav-item active">
+                <a class="nav-link" href="#">首頁<span class="sr-only">(current)</span></a>
+                </li-->   
+            </ul>
+        
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-right">
+                
+                <li class="nav-item">
+                    <a class="nav-link" style="pointer-events: none" ><strong> Hi !</strong></a>
+                </li>
+                
+                <li class="nav-item">
+                <!--a class="nav-link" href="0_login.php">註冊/登入</a-->
+                <a class="nav-link" href={:php_guide}>{:check_login}</a>
+
+                </li>
+            </ul>
+        </div>
+    </div >
+</nav>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bs-stepper@1.7.0/dist/js/bs-stepper.min.js"></script>
+  <script>
+    var stepperElem = document.querySelector('.bs-stepper');
+    var stepper = new Stepper(stepperElem);
+    var done = false;
+    var currStep = 1;
+    history.pushState(currStep, '');
+    //切換到步驟前觸發，呼叫e.preventDefault()可阻止切換
+    stepperElem.addEventListener("show.bs-stepper", function (e) {
+      if (done) { //若程序完成，不再切換
+        e.preventDefault();
+        return;
+      }
+    });
+    //切換到步驟後觸發，e.detail.indexStep為目前步驟序號(從0開始)
+    stepperElem.addEventListener("shown.bs-stepper", function (e) {
+      var idx = e.detail.indexStep + 1;
+      currStep = idx;
+      //pushState()記下歷程以支援瀏覽器回上頁功能
+      history.pushState(idx, '');
+    })
+    //瀏覽器上一頁下一頁觸發
+    window.onpopstate = function (e) {
+      if (e.state && e.state != currStep)
+        stepper.to(e.state);
+    };
+    //模擬送出表單，註記已完成，不再允許切換步驟
+    function simulateSubmit() {
+      stepper.next();
+      done = true;
+    }
+  </script>
+
+
+
+</body></html>
