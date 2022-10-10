@@ -89,18 +89,18 @@ if(isset($_GET['id'])){
                                 <div id="step1" class="content" role="tabpanel">
                                     <div class="form-group">
                                         <label>評論(喜歡這項商品的哪個部分)</label>
-                                        <textarea name="content" class="form-control" ></textarea>
-                                        <small id="reviewHelp" class="form-text text-muted">請至少輸入30個字</small>
+                                        <textarea name="content" class="form-control" onkeyup="checkLength_P(this);" placeholder="請至少輸入30個字" ></textarea>
+                                        <small class="form-text text-muted"><span id="chLeft_P">0</span>/30</small>
                                     </div>
-                                    <div>
+                                    <div class="b">
                                         <button type="button" onclick="stepper.next()">下一步</button>
                                     </div>
                                 </div>
                                 <div id="step2" class="content" role="tabpanel">
                                     <div class="form-group">
                                         <label>評論(有什麼不滿意的地方嗎)</label>
-                                        <textarea name="content_negative" class="form-control"></textarea>
-                                        <small id="reviewHelp" class="form-text text-muted">請至少輸入30個字</small>
+                                        <textarea name="content_negative" class="form-control" onkeyup="checkLength(this);" placeholder="請至少輸入30個字" ></textarea>
+                                        <small class="form-text text-muted"><span id="chLeft" >0</span><span>/30</span></small>
                                     </div>
                                     <div class="b">
                                         <button type="button" onclick="stepper.next()" >提交</button>
@@ -227,18 +227,18 @@ if(isset($_GET['id'])){
                                 <div id="step1" class="content" role="tabpanel">
                                     <div class="form-group">
                                         <label>評論(有什麼不滿意的地方嗎)</label>
-                                        <textarea name="content_negative" class="form-control"></textarea>
-                                        <small id="reviewHelp" class="form-text text-muted">請至少輸入30個字</small>
+                                        <textarea name="content_negative" class="form-control" onkeyup="checkLength(this);" placeholder="請至少輸入30個字"></textarea>
+                                        <small class="form-text text-muted"><span id="chLeft" >0</span><span>/30</span></small>
                                     </div>
-                                    <div>
+                                    <div class="b">
                                         <button type="button" onclick="stepper.next()">下一步</button>
                                     </div>
                                 </div>
                                 <div id="step2" class="content" role="tabpanel">
                                     <div class="form-group">
                                         <label>評論(喜歡這項商品的哪個部分)</label>
-                                        <textarea name="content" class="form-control" ></textarea>
-                                        <small id="reviewHelp" class="form-text text-muted">請至少輸入30個字</small>
+                                        <textarea name="content" class="form-control" onkeyup="checkLength_P(this);" placeholder="請至少輸入30個字"></textarea>
+                                        <small class="form-text text-muted"><span id="chLeft_P" >0</span><span>/30</span></small>
                                     </div>
                                     <div class="b">
                                         <button type="button" onclick="stepper.next()" >提交</button>

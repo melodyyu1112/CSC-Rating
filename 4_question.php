@@ -346,6 +346,26 @@ if(isset($_GET['id'])){
             dialog::backdrop {
             background-color: rgba(0, 0, 0, 0.1);
             }
+
+            .b{
+            width:200px;
+            display : flex;
+            justify-content: center;
+            align-items: center;
+            padding : 15px;
+            margin-right:auto;
+            margin-left:auto;
+
+            }
+            .summit{
+            padding : 10px;
+            font-size:20px;
+            /* border:solid grey 1px; */
+            display : flex;
+            justify-content: center;
+            align-items: center;
+            
+            }
         </style>
 
         </body>

@@ -98,8 +98,8 @@ if(isset($_GET['id'])){
                             <div id="step1" class="content" role="tabpanel">
                                 <div class="form-group">
                                     <label>評論(喜歡這項商品的哪個部分)</label>
-                                    <textarea name="Revise_C" class="form-control" ><?php echo $row['content']; ?></textarea>
-                                    <small id="reviewHelp" class="form-text text-muted">請至少輸入30個字</small>
+                                    <textarea name="Revise_C" class="form-control" onkeyup="checkLength_P(this);" placeholder="請至少輸入30個字"><?php echo $row['content']; ?></textarea>
+                                    <small class="form-text text-muted"><span id="chLeft_P">30</span><span>/30</span></small>
                                 </div>
                                 <div>
                                     <button type="button" onclick="stepper.next()">下一步</button>
@@ -108,8 +108,8 @@ if(isset($_GET['id'])){
                             <div id="step2" class="content" role="tabpanel">
                                 <div class="form-group">
                                     <label>評論(有什麼不滿意的地方嗎)</label>
-                                    <textarea name="Revise_C_N" class="form-control"><?php echo $row['content_negative'];?></textarea>
-                                    <small id="reviewHelp" class="form-text text-muted">請至少輸入30個字</small>
+                                    <textarea name="Revise_C_N" class="form-control" onkeyup="checkLength(this);" placeholder="請至少輸入30個字"><?php echo $row['content_negative'];?></textarea>
+                                        <small class="form-text text-muted"><span id="chLeft" >0</span><span>/30</span></small>
                                 </div>
                                 <div class="b">
                                     <button type="button" onclick="stepper.next()" >提交</button>
@@ -203,8 +203,8 @@ if(isset($_GET['id'])){
                             <div id="step1" class="content" role="tabpanel">
                                 <div class="form-group">
                                     <label>評論(有什麼不滿意的地方嗎)</label>
-                                    <textarea name="Revise_C_N" class="form-control"><?php echo $row['content_negative'];?></textarea>
-                                    <small id="reviewHelp" class="form-text text-muted">請至少輸入30個字</small>
+                                    <textarea name="Revise_C_N" class="form-control" onkeyup="checkLength(this);" placeholder="請至少輸入30個字"><?php echo $row['content_negative'];?></textarea>
+                                    <small class="form-text text-muted"><span id="chLeft" >30</span><span>/30</span></small>
                                 </div>
                                 <div>
                                     <button type="button" onclick="stepper.next()">下一步</button>
@@ -213,8 +213,8 @@ if(isset($_GET['id'])){
                             <div id="step2" class="content" role="tabpanel">
                                 <div class="form-group">
                                     <label>評論(喜歡這項商品的哪個部分)</label>
-                                    <textarea name="Revise_C" class="form-control" ><?php echo $row['content'];?></textarea>
-                                    <small id="reviewHelp" class="form-text text-muted">請至少輸入30個字</small>
+                                    <textarea name="Revise_C" class="form-control" onkeyup="checkLength_P(this);" placeholder="請至少輸入30個字" ><?php echo $row['content'];?></textarea>
+                                    <small class="form-text text-muted"><span id="chLeft_P">30</span><span>/30</span></small>
                                 </div>
                                 <div>
                                     <button type="button" onclick="stepper.next()" >提交</button>
@@ -227,6 +227,7 @@ if(isset($_GET['id'])){
                                 <div class="b">
                                     <button type="submit" onclick="stepper.next()" > 確認</button>
                                 </div>
+                            
                             </div>
                         </div>
                         </div>
