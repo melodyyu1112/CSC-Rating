@@ -120,8 +120,33 @@
     $('#myModal').on('shown.bs.modal', function () {
       $('#myInput').trigger('focus')
     })
+
+
+
   </script>
 
+  <!--  監聽評論字數輸入-->
+  <script>
+    function checkLength(which) {   //Review_Negative
+        var maxChars = 100;   //輸入上限為100個字
+        if (which.value.length > maxChars)   
+        which.value = which.value.substring(0,maxChars);   
+        //var curr = maxChars - which.value.length;   
+        var curr = which.value.length;   
+        document.getElementById("chLeft").innerHTML = curr.toString();   
+    }   
+
+     
+    function checkLength_P(which) {    //Review_Positive
+        var maxChars = 100;   //輸入上限為100個字
+        if (which.value.length > maxChars)   
+        which.value = which.value.substring(0,maxChars);   
+        //var curr = maxChars - which.value.length;   
+        var curr = which.value.length;   
+        document.getElementById("chLeft_P").innerHTML = curr.toString();   
+    }   
+    
+  </script>
 
 
 </body></html>
