@@ -69,7 +69,7 @@ $sth = $dbh->query('SELECT * from product ORDER BY id');
 while($row = $sth->fetch(PDO::FETCH_ASSOC)){
 
     $keywordsTpl = new template('keyword.htm');
-    $keywordsTpl->set('keyword','<li class="nav-item"><a href="2_viewBoard.php?id='.$row['id'].'">'.$row['name'].'</a></li>');
+    $keywordsTpl->set('keyword','<li class="nav-item"><a href="1_showPic.php?id='.$row['id'].'">'.$row['name'].'</a></li>');
     $keywords[] = $keywordsTpl->render();
 
 }
